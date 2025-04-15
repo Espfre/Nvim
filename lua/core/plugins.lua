@@ -25,7 +25,7 @@ require("lazy").setup({
 		},
 	},
 
-	-- 🌌 TokyoNight theme
+	--  TokyoNight theme
 	{
 		"folke/tokyonight.nvim",
 		lazy = false,
@@ -39,7 +39,7 @@ require("lazy").setup({
 		"neovim/nvim-lspconfig",
 	},
 
-	-- 🌳 Treesitter + rainbow parens
+	--  Treesitter + rainbow parens
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
@@ -84,7 +84,7 @@ require("lazy").setup({
 		end,
 	},
 
-	-- 📦 Mason (LSP installer)
+	--  Mason (LSP installer)
 	{
 		"williamboman/mason.nvim",
 		config = function()
@@ -92,7 +92,7 @@ require("lazy").setup({
 		end,
 	},
 
-	-- 🧠 Which-key (keybind-hints)
+	--  Which-key (keybind-hints)
 	{
 		"folke/which-key.nvim",
 		config = function()
@@ -106,7 +106,7 @@ require("lazy").setup({
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 
-	-- 📁 Neo-tree (filbrowser)
+	--  Neo-tree (filebrowser)
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v3.x",
@@ -213,7 +213,7 @@ require("lazy").setup({
 		end,
 	},
 
-	-- 💾 Lualine (statuslinje)
+	--  Lualine (statusline)
 	{
 		"nvim-lualine/lualine.nvim",
 		config = function()
@@ -232,7 +232,7 @@ require("lazy").setup({
 		opts = {},
 	},
 
-	-- 🖥️ Alpha dashboard
+	--  Alpha dashboard
 	{
 		"goolord/alpha-nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -241,14 +241,38 @@ require("lazy").setup({
 			local dashboard = require("alpha.themes.dashboard")
 
 			dashboard.section.header.val = {
-				[[     ███╗   ██╗██╗   ██╗███╗   ███╗ ]],
-				[[     ████╗  ██║██║   ██║████╗ ████║ ]],
-				[[     ██╔██╗ ██║██║   ██║██╔████╔██║ ]],
-				[[     ██║╚██╗██║██║   ██║██║╚██╔╝██║ ]],
-				[[     ██║ ╚████║╚██████╔╝██║ ╚═╝ ██║ ]],
-				[[     ╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝ ]],
+
+				[[                   -`                      ]],
+				[[                  .o+`                     ]],
+				[[                 `ooo/                     ]],
+				[[                `+oooo:                    ]],
+				[[               `+oooooo:                   ]],
+				[[               -+oooooo+:                  ]],
+				[[             `/:-:++oooo+:                 ]],
+				[[            `/++++/+++++++:                ]],
+				[[           `/++++++++++++++:               ]],
+				[[          `/+++ooooooooooooo/`             ]],
+				[[         ./ooosssso++osssssso+`            ]],
+				[[        .oossssso-````/ossssss+`           ]],
+				[[       -osssssso.      :ssssssso.          ]],
+				[[      :osssssss/        osssso+++.         ]],
+				[[     /ossssssss/        +ssssooo/-         ]],
+				[[   `/ossssso+/:-        -:/+osssso+-       ]],
+				[[  `+sso+:-`                 `.-/+oso:      ]],
+				[[ `++:.                           `-/+/     ]],
+				[[ .`                                 `/     ]],
 			}
 
+			-- Color highlights
+			dashboard.section.header.opts.hl = "AlphaHeader"
+			dashboard.section.buttons.opts.hl = "AlphaButtons"
+			dashboard.section.footer.opts.hl = "AlphaFooter"
+
+			vim.cmd([[highlight AlphaHeader guifg=#c678dd]]) -- Purple Arch logo
+			vim.cmd([[highlight AlphaButtons guifg=#7dcfff]]) -- Cyan buttons
+			vim.cmd([[highlight AlphaFooter guifg=#a6e3a1]]) -- Minty footer
+
+			-- Buttons
 			dashboard.section.buttons.val = {
 				dashboard.button("e", "  New file", ":ene <BAR> startinsert<CR>"),
 				dashboard.button("f", "  Find file", ":Telescope find_files<CR>"),
@@ -256,7 +280,10 @@ require("lazy").setup({
 				dashboard.button("q", "  Quit", ":qa<CR>"),
 			}
 
+			-- Footer message
 			dashboard.section.footer.val = "💜 Archified. Riced. Ready to code."
+
+			-- Load dashboard
 			alpha.setup(dashboard.config)
 		end,
 	},
