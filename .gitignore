@@ -1,6 +1,6 @@
 # nvim .gitignore
 
-# Editor swap, undo og backup
+# Editor swap, undo and backup
 *.swp
 *.swo
 *.swn
@@ -9,24 +9,19 @@
 
 # Lazy.nvim / plugin state
 lazy-lock.json
-plugin/
-lua/*/lazy_*.lua
 
-# testfiler
+# testfiles
 test*
 *.test.*
 tests/
 __tests__/
 
-# Node og js/ts build ting (hvis aktuelt)
+# Node and js/ts 
 node_modules/
 dist/
 build/
 
-# LSP/metadritt
+# LSP/meta
 *.log
 *.out
-
-# Obsidian/Markdown cache (hvis du bruker det)
-.obsidian/
-
+.cache/
